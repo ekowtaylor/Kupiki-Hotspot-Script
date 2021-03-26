@@ -228,8 +228,8 @@ jumpto() {
 
 verifyFreeDiskSpace() {
     # Needed free space
-    local required_free_megabytes=1024
-    # If user installs unattended-upgrades we will check for 1GB free
+    local required_free_megabytes=2048
+    # If user installs unattended-upgrades we will check for 2GB free
     echo ":::"
     echo -n "::: Verifying free disk space ($required_free_megabytes Mb)"
     local existing_free_megabytes=$(df -Pk | grep -m1 '\/$' | awk '{print $4}')
@@ -513,7 +513,7 @@ if [[ $COMMAND_RESULT -ne 0 ]]; then
 
     execute_command "/sbin/lsmod | grep tun" false "Checking for tun module"
     if [[ $COMMAND_RESULT -ne 0 ]]; then
-        display_message "Unable to get tun module up. Please solve before running the script again."
+        display_message "Unable to get turn module up. Please solve before running the script again."
         display_message "If your distribution has been upgraded you should try to reboot first."
         exit 1
     fi
