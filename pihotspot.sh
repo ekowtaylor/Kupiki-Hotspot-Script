@@ -49,7 +49,7 @@ DALORADIUS_INSTALL="Y"
 BLUETOOTH_ENABLED="Y"
 # Enable/Disable fail2ban to protect server from unwanted access
 # Set value to Y or N
-FAIL2BAN_ENABLED="N"
+FAIL2BAN_ENABLED="Y"
 # Enable/Disable Netflow logs to log all traffic requests. Must be crossed checked with assigned IP in the radius tables
 # Set value to Y or N
 NETFLOW_ENABLED="Y"
