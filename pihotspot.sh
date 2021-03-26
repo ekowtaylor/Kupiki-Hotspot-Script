@@ -15,7 +15,7 @@ HOTSPOT_NAME="kupikihotspot"
 HOTSPOT_IP="192.168.10.1"
 # Wi-fi code country. Use above link to find yours
 # https://www.cisco.com/c/en/us/td/docs/wireless/wcs/3-2/configuration/guide/wcscfg32/wcscod.html
-WIFI_COUNTRY_CODE="FR"
+WIFI_COUNTRY_CODE="US"
 # Use HTTPS to connect to web portal
 # Set value to Y or N
 HOTSPOT_HTTPS="N"
@@ -28,7 +28,9 @@ WAN_INTERFACE=`ip link show | grep '^[1-9]' | awk -F ':' '{print $2}' | awk '{$1
 # LAN interface (the one for the hotspot)
 LAN_INTERFACE="wlan0"
 # Wifi driver
-LAN_WIFI_DRIVER="nl80211"
+LAN_WIFI_DRIVER="brcmfmac"
+# Pi3 = nl80211
+# Pi4 = brcmfmac
 # Install Haserl (required if you want to use the default Coova Portal)
 # Set value to Y or N
 HASERL_INSTALL="N"
