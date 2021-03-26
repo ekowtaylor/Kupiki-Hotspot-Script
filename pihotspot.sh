@@ -46,7 +46,7 @@ AVAHI_INSTALL="Y"
 DALORADIUS_INSTALL="Y"
 # Enable/Disable Bluetooth
 # Set value to Y or N
-BLUETOOTH_ENABLED="N"
+BLUETOOTH_ENABLED="Y"
 # Enable/Disable fail2ban to protect server from unwanted access
 # Set value to Y or N
 FAIL2BAN_ENABLED="N"
@@ -66,7 +66,7 @@ MAC_AUTHENTICATION_ENABLED="N"
 MAC_AUTHENTICATION_PASSWORD="123456"
 # Install web frontend of Kupiki Hotspot
 # Set value to Y or N
-INSTALL_KUPIKI_ADMIN=N
+INSTALL_KUPIKI_ADMIN=Y
 # Install Cron job for the hotspot updater. Will be executed every sunday at 8am (system time)
 # Set value to Y or N
 ADD_CRON_UPDATER=Y
