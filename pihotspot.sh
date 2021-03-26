@@ -899,6 +899,8 @@ check_returned_code $?
 if [[ "$DALORADIUS_INSTALL" = "Y" ]]; then
 
     execute_command "cp -Rf /usr/src/daloradius /usr/share/nginx/html/" true "Installing Daloradius in Nginx folder"
+    
+    execute_command "cp /usr/share/nginx/html/daloradius/library/daloradius.conf.php.sample /usr/share/nginx/html/daloradius/library/daloradius.conf.php" true "Missing daloradius.conf.php created"
 
     display_message "Loading daloradius configuration into MySql"
     mariadb -u root -p$MYSQL_PASSWORD radius < /usr/share/nginx/html/daloradius/contrib/db/fr2-mysql-daloradius-and-freeradius.sql
