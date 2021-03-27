@@ -1172,7 +1172,7 @@ if [[ -d "/etc/ssh" ]]; then
     sed -i "s?^Banner.*?Banner /etc/ssh/kupiki-banner?g" /etc/ssh/sshd_config
     check_returned_code $?
 
-    execute_command "service ssh reload" true "Reload configuration for SSH service"
+    execute_command "systemctl restart ssh" true "Reload configuration for SSH service"
 fi
 
 display_message "Creating Kupiki Admin folder for the database"
