@@ -27,10 +27,10 @@ FREERADIUS_SECRETKEY=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head 
 WAN_INTERFACE=`ip link show | grep '^[1-9]' | awk -F ':' '{print $2}' | awk '{$1=$1};1' | grep '^e'`
 # LAN interface (the one for the hotspot)
 LAN_INTERFACE="wlan0"
-# Wifi driver
-LAN_WIFI_DRIVER="brcmfmac"
+# Wifi driver # check with readlink /sys/class/net/wlan0/device/driver
 # Pi3 = nl80211
 # Pi4 = brcmfmac
+LAN_WIFI_DRIVER="brcmfmac"
 # Install Haserl (required if you want to use the default Coova Portal)
 # Set value to Y or N
 HASERL_INSTALL="N"
@@ -1212,13 +1212,13 @@ execute_command "service freeradius start" true "Starting freeradius service"
 execute_command "service nginx reload" true "Restarting Nginx"
 
 display_message "Checking if service hostapd is masked"
-/bin/systemctl list-unit-files | grep ^hostapd.service | grep masked
+systemctl list-unit-files | grep ^hostapd.service | grep masked
 if [[ $? -eq 0 ]]; then
     display_message "Unmasking hostapd service"
-    /bin/systemctl unmask hostapd.service
+    systemctl unmask hostapd.service
     check_returned_code $?
     display_message "Enable hostapd service"
-    /bin/systemctl enable hostapd.service
+    systemctl enable hostapd.service
     check_returned_code $?
 fi
 execute_command "service hostapd restart" true "Restarting hostapd"
