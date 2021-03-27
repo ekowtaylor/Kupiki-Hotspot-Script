@@ -1135,15 +1135,15 @@ maxretry = 3
 EOT
 
 display_message "Reloading fail2ban local configuration"
-/usr/bin/fail2ban-client reload
+fail2ban-client reload
 check_returned_code $?
 
 if [[ "$FAIL2BAN_ENABLED" = "N" ]]; then
     display_message "Disable fail2ban service"
-    /bin/systemctl disable fail2ban.service
+    fail2ban-client stop
     check_returned_code $?
     display_message "Stopping fail2ban service"
-    /bin/systemctl stop fail2ban.service
+    fail2ban-client stop
     check_returned_code $?
 fi
 
